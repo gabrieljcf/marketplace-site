@@ -6,7 +6,7 @@ import {
 import { Home } from '../pages/Home'
 import { Products } from '../pages/Products'
 import { Basket } from '../pages/Basket'
-import { App } from "../App";
+import { NotFound } from "../pages/NotFound";
 
 export function Router() {
   return (
@@ -14,6 +14,7 @@ export function Router() {
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
       <Route path="/Basket" element={<Basket />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
