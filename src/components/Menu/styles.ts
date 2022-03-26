@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.nav`
   background: var(--pink);
   border-radius: 2.5rem;
-  margin-top: 0.1rem;
   max-height: 80px;
 `;
 
@@ -26,6 +25,7 @@ export const Content = styled.div`
       color: var(--text-light);
       font-weight: 600;
       padding: 0.5rem 1rem;
+      font-size: 1rem;
 
       &:hover, &:active {
         color: var(--pink);
