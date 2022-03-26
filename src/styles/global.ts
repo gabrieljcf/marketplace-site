@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     
     --line: #C4C4C466;
     
-    --background: #f0f2f5;
+    --background: #FFF;
   }
   * {
     margin: 0;
@@ -43,6 +43,10 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
+  }
+
+  li { 
+    list-style: none;
   }
 
   button {
