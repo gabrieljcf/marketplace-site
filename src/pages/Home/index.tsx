@@ -1,10 +1,11 @@
-// import { Header } from "../../components/Header";
+import { CtaHeader } from "../../components/CtaHeader";
+import { OurProducts } from "../../components/OurProducts";
 
 export function Home() {
   return (
     <>
-      {/* <Header /> */}
-      <h1>Home</h1>
+      <CtaHeader/>
+      <OurProducts />
     </>
   );
 }

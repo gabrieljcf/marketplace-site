@@ -1,0 +1,42 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Card, PriceContainer, Tooltip } from "./styles";
+
+interface ProductCardProps {
+  _id: string;
+  name: string;
+  price: number;
+  images: string[];
+}
+
+export function ProductCard({ _id, name, price, images }: ProductCardProps) {
+  const [hover, setHover] = useState<boolean>(false);
+
+  return (
+    <Card>
+      <img src={images[0]} alt={name} />
+      <p
+        onMouseOver={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        {name}
+      </p>
+      <PriceContainer>
+        <small>
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(price)}
+        </small>
+      </PriceContainer>
+      <Tooltip
+        isHover={hover}
+      >
+        {name}
+      </Tooltip>
+      <Link to="products">
+        <button>Comprar</button>
+      </Link>
+    </Card>
+  )
+}

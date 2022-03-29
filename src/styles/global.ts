@@ -58,4 +58,15 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  .swiper {
+    padding: 0 10px;
+  }
+  
+  .swiper-pagination-bullet {
+    background: var(--pink);
+  }
 `
