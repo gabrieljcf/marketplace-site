@@ -4,7 +4,7 @@ import { OurProducts } from "../../components/OurProducts";
 export function Home() {
   return (
     <>
-      <CtaHeader/>
+      <CtaHeader />
       <OurProducts />
     </>
   );

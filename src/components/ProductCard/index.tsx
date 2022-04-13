@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, PriceContainer, Tooltip } from "./styles";
+import { Tooltip } from "../Tooltip";
+import { Card, PriceContainer } from "./styles";
 
 interface ProductCardProps {
   _id: string;
@@ -29,11 +30,9 @@ export function ProductCard({ _id, name, price, images }: ProductCardProps) {
           }).format(price)}
         </small>
       </PriceContainer>
-      <Tooltip
-        isHover={hover}
-      >
-        {name}
-      </Tooltip>
+
+      <Tooltip isHover={hover} description={name}/>
+      
       <Link to="products">
         <button>Comprar</button>
       </Link>

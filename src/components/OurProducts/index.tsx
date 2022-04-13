@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper';
+import { ProductsHighLight } from "../ProductsHighLight";
 import { api } from "../../services/api";
-import { ProductCard } from "../ProductCard";
+import { List } from "../List";
 
-import { Container } from "./styles";
-
-import 'swiper/css';
-import "swiper/css/pagination";
+import { Container } from "./style";
 
 interface Categories {
   _id: string;
@@ -24,7 +20,7 @@ interface Products {
 
 export function OurProducts() {
   const [categories, setCategories] = useState<Categories[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string>("623f9859bd7ac16e735f59d0");
+  const [activeCategory, setActiveCategory] = useState<string>("6255e1d8aedfe58bbf1b8c31");
   const [products, setProducts] = useState<Products[]>([]);
 
   useEffect(() => {
@@ -40,46 +36,18 @@ export function OurProducts() {
   return (
     <Container>
       <h2>Nossos <span>Produtos</span></h2>
-      <ul>
-        {categories.map(category => (
-          <li
-            key={category._id}
-            onClick={() => setActiveCategory(category._id)}
-            className={
-              category._id === activeCategory
-                ? "active"
-                : ""
-            }
-          >
-            {category.name}
-          </li>
-        ))}
-      </ul>
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        spaceBetween={0}
-        slidesPerView={4}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-      >
-        {
-          products.map(product => (
-            <SwiperSlide key={product._id}>
-              <ProductCard
-                _id={product._id}
-                name={product.name}
-                images={product.images}
-                price={product.price}
-              />
-            </SwiperSlide>
-          ))
-        }
-      </Swiper>
+
+      <List
+        items={categories}
+        setActiveItem={setActiveCategory}
+        activeItem={activeCategory}
+      />
+
+      <ProductsHighLight 
+        products={products}
+        notFoundMessage="No momento não existe produtos cadastrados para essa categoria"
+      />
+
     </Container>
   );
 }
