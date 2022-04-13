@@ -5,12 +5,17 @@ export const Container = styled.section`
   background: var(--pink-light);
 `;
 
-export const Content = styled.div`
+interface ContentProps {
+  reverse: boolean;
+}
+
+export const Content = styled.div<ContentProps>`
   max-width: 1120px;
   margin: 0 auto;
   padding: 2rem 1rem;
   
   display: flex;
+  flex-direction: ${({ reverse }) => reverse ? 'row-reverse' : 'row'};
   align-items: center;
   justify-content: space-between;
 

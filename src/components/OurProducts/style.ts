@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 4rem auto;
 
   h2 {
-    margin-top: 4rem;
     text-align: center;
     font-size: 2rem;
     color: var(--text-body);
