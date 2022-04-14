@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductsCarousel } from "../productsCaroulsel";
+import { ProductsCarousel } from "../ProductsCaroulsel";
 import { api } from "../../services/api";
 import { List } from "../List";
 
