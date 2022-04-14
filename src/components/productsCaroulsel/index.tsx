@@ -19,7 +19,7 @@ interface HighLigthProducsProps {
   notFoundMessage: string;
 }
 
-export function ProductsHighLight({ products, notFoundMessage }: HighLigthProducsProps) {
+export function ProductsCarousel({ products, notFoundMessage }: HighLigthProducsProps) {
   return (
     <Container>
       {

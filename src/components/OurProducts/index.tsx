@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductsHighLight } from "../ProductsHighLight";
+import { ProductsCarousel } from "../productsCaroulsel";
 import { api } from "../../services/api";
 import { List } from "../List";
 
@@ -43,7 +43,7 @@ export function OurProducts() {
         activeItem={activeCategory}
       />
 
-      <ProductsHighLight 
+      <ProductsCarousel 
         products={products}
         notFoundMessage="No momento não existe produtos cadastrados para essa categoria"
       />

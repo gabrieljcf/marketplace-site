@@ -63,10 +63,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .swiper {
-    padding: 0 10px;
+    padding: 10px;
   }
   
   .swiper-pagination-bullet {
     background: var(--pink);
+  }
+
+  .swiper-pagination {
+    margin-top: 5rem;
   }
 `
