@@ -2,6 +2,8 @@ import styled from "styled-components";
 import circleImg from '../../assets/circle.svg';
 
 export const Container = styled.section`
+  height: 430px;
+  max-height: 430px;
   background: var(--pink-light);
 `;
 
@@ -19,6 +21,10 @@ export const Content = styled.div<ContentProps>`
   align-items: center;
   justify-content: space-between;
 
+  img {
+    width: 280px;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     img {
@@ -32,6 +38,7 @@ export const ContainerText = styled.div`
   background-repeat: no-repeat;
   background-position: 80% 0%;
   margin-top: 1.25rem;
+  height: 345px;
   
   
   h1 {
