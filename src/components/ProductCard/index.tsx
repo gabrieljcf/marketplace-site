@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Tooltip } from "../Tooltip";
 import { Card, PriceContainer } from "./styles";
 
+import notFountImg from '../../assets/noimage.png'
+
 interface ProductCardProps {
   _id: string;
   name: string;
@@ -15,7 +17,7 @@ export function ProductCard({ _id, name, price, images }: ProductCardProps) {
 
   return (
     <Card>
-      <img src={images[0]} alt={name} />
+      <img src={images[0] ?? notFountImg} alt={name} />
       <p
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -33,7 +35,7 @@ export function ProductCard({ _id, name, price, images }: ProductCardProps) {
 
       <Tooltip isHover={hover} description={name}/>
       
-      <Link to="products">
+      <Link to={`marketplace/${_id}`}>
         <button>Comprar</button>
       </Link>
     </Card>

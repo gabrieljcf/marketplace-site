@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  margin-top: 2.5rem;
+
   padding: 2rem;
   
   max-width: 220px;
+  max-height: 270px;
   
   border-radius: 2rem;
   box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
