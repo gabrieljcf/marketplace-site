@@ -1,7 +1,7 @@
 import { Cta } from "../../components/Cta";
 import { OurProducts } from "../../components/OurProducts";
 
-import ctaImg from '../../assets/cta.png'
+import ctaImg from "../../assets/cta.png";
 import { ProductsHighlight } from "../../components/ProductsHighlight";
 import { Address } from "../../components/Address";
 
