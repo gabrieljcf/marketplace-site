@@ -12,13 +12,13 @@ import {
   SearchInput,
   Title,
 } from "./styles";
-import { ErrorContainer } from "../../components/ProductsCaroulsel/styles";
 
-import ctaImg from "../../assets/cta-2.png";
 import searchImg from "../../assets/search.svg";
 import { Pagination } from "../../components/Pagination";
 import { Loading } from "../../components/Loading";
 
+import ctaImg from "../../assets/cta-2.png";
+import { ErrorContainer } from "../../components/ProductsCaroulsel/styles";
 interface ProductsProps {
   _id: string;
   price: number;
@@ -93,12 +93,9 @@ export function Products() {
           </button>
         </SearchContainer>
 
-        <Categories
-          setActiveCategory={setActiveCategory}
-          selectedCategory={activeCategory}
-        />
+        <Categories setActiveCategory={setActiveCategory} />
 
-        {loading &&  <Loading />}
+        {loading && <Loading />}
 
         {products.length ? (
           <ListContainer>
