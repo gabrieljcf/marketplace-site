@@ -9,12 +9,14 @@ import { Basket } from '../pages/Basket'
 import { NotFound } from "../pages/NotFound";
 import { About } from "../pages/About";
 import { Contact } from "../pages/Contact";
+import { Product } from "../pages/Product";
 
 export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/marketplace/product/:id" element={<Product />} />
       <Route path="/Basket" element={<Basket />} />
       <Route path="/About" element={<About />} />
       <Route path="/Contact" element={<Contact />} />
