@@ -1,0 +1,112 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Cta } from "../../components/Cta";
+import { Loading } from "../../components/Loading";
+import { api } from "../../services/api";
+
+import ctaImg from "../../assets/cta-2.png";
+import { ProductImageDetails } from "../../components/ProductImageDetails";
+import {
+  Button,
+  Content,
+  Line,
+  PriceContainer,
+  ProductContainer,
+  ProductDetails,
+} from "./styles";
+import { SelectQuantity } from "../../components/SelectQuantity";
+import { useToast } from "../../hooks/useToast";
+import { Accordion } from "../../components/Accordion";
+
+interface ProductProps {
+  _id: string;
+  name: string;
+  price: number;
+  images: string[];
+  description: string;
+}
+
+export function Product() {
+  const { id } = useParams();
+  const [product, setProduct] = useState<ProductProps>();
+  const [loading, setLoading] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const Toast = useToast();
+
+  useEffect(() => {
+    setLoading(true);
+    api.get(`products/${id}`).then((response) => {
+      setProduct(response.data);
+      setLoading(false);
+    });
+  }, [id]);
+
+  function handleAddToCart() {
+    const items = localStorage.getItem("arte-festas-card");
+
+    if (items) {
+      const itemsArray = JSON.parse(items);
+      itemsArray.push({
+        ...product,
+        quantity,
+      });
+
+      localStorage.setItem("arte-festas-card", JSON.stringify(itemsArray));
+    }
+
+    if (!items) {
+      localStorage.setItem(
+        "arte-festas-card",
+        JSON.stringify([{ ...product, quantity }])
+      );
+    }
+
+    Toast.fire({
+      icon: "success",
+      title: "Produto adicionado a cesta com sucesso!",
+    });
+  }
+
+  return (
+    <>
+      {loading && <Loading />}
+
+      <Cta
+        title="Os melhores produtos para você"
+        subtitle="Solte sua imaginação ao criar novos produtos"
+        paragraph="Que tal trabalhar com algo novo ?
+      Aqui você encontra o que há de mais novo no mercdo, para vocẽ poder inovar"
+        reverse={false}
+        image={ctaImg}
+      />
+
+      {product && (
+        <Content>
+          <ProductContainer>
+            <ProductImageDetails images={product.images} />
+            <Line />
+
+            <ProductDetails>
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+
+              <PriceContainer>
+                <SelectQuantity quantity={quantity} setQuantity={setQuantity} />
+                <p>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(product.price * quantity)}
+                </p>
+              </PriceContainer>
+
+              <Button onClick={handleAddToCart}>Adicionar a cesta</Button>
+            </ProductDetails>
+          </ProductContainer>
+
+          <Accordion title="Detalhes" content={product.description} />
+        </Content>
+      )}
+    </>
+  );
+}
