@@ -29,6 +29,7 @@ export function Pagination({
           <div>
             {pages.map((page) => (
               <Button
+                key={page}
                 onClick={() => setPage(page)}
                 selected={currentPage === page}
               >
