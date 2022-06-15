@@ -2,12 +2,14 @@ import { Cta } from "../../components/Cta";
 import { OurProducts } from "../../components/OurProducts";
 
 import ctaImg from "../../assets/cta.png";
+import creamImg from "../../assets/cta-2.png";
 import { ProductsHighlight } from "../../components/ProductsHighlight";
 import { Address } from "../../components/Address";
+import { HomeContainer } from "./styles";
 
 export function Home() {
   return (
-    <main>
+    <HomeContainer>
       <Cta
         title="Os melhores produtos para você"
         subtitle="Solte sua imaginação ao criar novos produtos"
@@ -23,11 +25,11 @@ export function Home() {
         subtitle="Com mais de 10 anos de mercado"
         paragraph="A arte festas tem se dedicado a trazer qualidade e melhores preços ao mercado de festas e intretenimento, o nosso compromisso é com o melhor para os nossos clientes"
         reverse={true}
-        image={ctaImg}
+        image={creamImg}
       />
       <ProductsHighlight />
 
       <Address />
-    </main>
+    </HomeContainer>
   );
 }
