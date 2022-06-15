@@ -35,7 +35,7 @@ export function ProductCard({ _id, name, price, images }: ProductCardProps) {
 
       <Tooltip isHover={hover} description={name}/>
       
-      <Link to={`marketplace/${_id}`}>
+      <Link to={`/marketplace/product/${_id}`}>
         <button>Comprar</button>
       </Link>
     </Card>
