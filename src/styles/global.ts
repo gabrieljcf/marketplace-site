@@ -9,10 +9,11 @@ export const GlobalStyle = createGlobalStyle`
 
     --text-body: #633939;
     --text-paragraph: #63393980;
+    --text-description: #633939B2;
     --text-light: #FFFFFF;
     
     --line: #C4C4C466;
-    
+
     --background: #FFF;
   }
   * {
@@ -50,6 +51,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    border: none;
+    background: none;
     cursor: pointer;
   }
 
@@ -73,4 +76,4 @@ export const GlobalStyle = createGlobalStyle`
   .swiper-pagination {
     margin-top: 5rem;
   }
-`
+`;
