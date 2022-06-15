@@ -10,20 +10,21 @@ interface Category {
 
 interface CategoriesProps {
   setActiveCategory: (category: string) => void;
-  selectedCategory: string;
 }
 
-export function Categories({
-  setActiveCategory,
-  selectedCategory,
-}: CategoriesProps) {
+export function Categories({ setActiveCategory }: CategoriesProps) {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
 
   useEffect(() => {
-    api.get("categories").then((response) => setCategories(response.data));
+    api.get("categories").then((response) => {
+      setCategories(response.data);
+      setSelectedCategoryId(response?.data[0]?._id);
+    });
   }, []);
 
   function handleSelectCategory(event: any) {
+    setSelectedCategoryId(event.target.value);
     setActiveCategory(event.target.value);
   }
   return (
@@ -37,7 +38,8 @@ export function Categories({
                 name="categories"
                 id={category.nameSearch}
                 value={category._id}
-                checked={category._id === selectedCategory}
+                checked={category._id === selectedCategoryId}
+                onChange={(event) => setSelectedCategoryId(event.target.value)}
               />
               <span>{category.name}</span>
             </label>
