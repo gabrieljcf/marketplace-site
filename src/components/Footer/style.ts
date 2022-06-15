@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.footer`
   background: var(--pink-medium);
   width: 100%;
-
-  margin-top: 4rem;
 `;
 
 export const Content = styled.div`
