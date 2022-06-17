@@ -8,8 +8,8 @@ export function Footer() {
         <div>
           <span>redes sociais</span>
           <ul>
-            <li><a href="#" target="_blank">facebook</a></li>
-            <li><a href="#" target="_blank">instagram</a></li>
+            <li><a href="#/" target="_blank">facebook</a></li>
+            <li><a href="#/" target="_blank">instagram</a></li>
           </ul>
         </div>
         
@@ -26,8 +26,8 @@ export function Footer() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="products">Produtos</Link></li>
-            <li><Link to="/#about">Sobre</Link></li>
-            <li><Link to="/#contact">Contato</Link></li>
+            <li><Link to="/about">Sobre</Link></li>
+            <li><Link to="/contact">Contato</Link></li>
           </ul>
         </div>
       </Content>

@@ -1,12 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
+import { Autoplay } from "swiper";
 import { ProductCard } from "../ProductCard";
 
 import { Container, ErrorContainer } from "./styles";
 
 import "swiper/css";
-import "swiper/css/pagination";
-
 interface Products {
   _id: string;
   price: number;
@@ -27,7 +25,7 @@ export function ProductsCarousel({
     <Container>
       {products.length ? (
         <Swiper
-          modules={[ Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={0}
           slidesPerView={4}
           autoplay={{

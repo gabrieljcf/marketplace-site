@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Tooltip } from "../Tooltip";
 import { Card, PriceContainer } from "./styles";
 
-import notFountImg from '../../assets/noimage.png'
+import notFountImg from "../../assets/noimage.png";
+import { Button } from "../Button";
 
 interface ProductCardProps {
   _id: string;
@@ -26,18 +27,18 @@ export function ProductCard({ _id, name, price, images }: ProductCardProps) {
       </p>
       <PriceContainer>
         <small>
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
           }).format(price)}
         </small>
       </PriceContainer>
 
-      <Tooltip isHover={hover} description={name}/>
-      
+      <Tooltip isHover={hover} description={name} />
+
       <Link to={`/marketplace/product/${_id}`}>
-        <button>Comprar</button>
+        <Button fullWidth={true}>Comprar</Button>
       </Link>
     </Card>
-  )
+  );
 }

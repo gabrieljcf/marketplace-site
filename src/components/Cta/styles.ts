@@ -2,8 +2,8 @@ import styled from "styled-components";
 import circleImg from '../../assets/circle.svg';
 
 export const Container = styled.section`
-  height: 430px;
-  max-height: 430px;
+  height: 460px;
+  max-height: 480px;
   background: var(--pink-light);
 `;
 
@@ -40,7 +40,6 @@ export const ContainerText = styled.div`
   margin-top: 1.25rem;
   height: 345px;
   
-  
   h1 {
     color: var(--text-body);
     font-size: 1rem;
@@ -58,26 +57,10 @@ export const ContainerText = styled.div`
   }
 
   p {
-    margin-top: 2.5rem;
+    margin: 2.5rem 0;
     max-width: 400px;
     color: var(--text-paragraph);
     font-size: 1rem;
     font-weight: 500;
-  }
-
-  a button {
-    border: none;
-    background: var(--pink);
-    color: var(--text-light);
-    border-radius: 2.5rem;
-    height: 3rem;
-    padding: 0 1rem;
-    margin-top: 1.25rem;
-    font-weight: 600;
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.9);
-    }
   }
 `;

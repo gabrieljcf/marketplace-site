@@ -26,33 +26,12 @@ export const Card = styled.div`
     font-weight: 600;
     color: var(--text-body);
 
-    margin-top: 1.25rem;
+    margin: 1.25rem 0;
    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 200px;
-  }
-
-  button {
-    background: none;
-    border: none;
-    border-radius:2rem;
-
-    background: var(--pink);
-    
-    height: 2.5rem;
-    padding: 0.5rem 3rem;
-    margin-top: 1.25rem;
-    color: var(--text-light);
-    
-    font-weight: 500;
-    font-size: 1rem;
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.9);
-    }
   }
 `;
 
