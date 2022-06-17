@@ -11,23 +11,21 @@ import {
 
 interface AccordionProps {
   title: string;
-  content: string;
+  children: React.ReactNode;
 }
-export function Accordion({ title, content }: AccordionProps) {
+export function Accordion({ title, children }: AccordionProps) {
   const [expanded, setExpanded] = useState(false);
   return (
     <AccordionContainer>
       <AccordionHeader onClick={() => setExpanded(!expanded)}>
         <h3>{title}</h3>
         <img
-          src={expanded ? arrowDownImg : arrowUpImg}
+          src={!expanded ? arrowDownImg : arrowUpImg}
           alt="exibir descrição"
         />
       </AccordionHeader>
 
-      <AccordionContent isExpanded={expanded}>
-        <p>{content}</p>
-      </AccordionContent>
+      <AccordionContent isExpanded={expanded}>{children}</AccordionContent>
     </AccordionContainer>
   );
 }
