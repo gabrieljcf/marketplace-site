@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import circleImg from '../../assets/circle.svg';
+import circleImg from "../../assets/circle.svg";
 
 export const Container = styled.section`
   background: var(--pink-light);
@@ -9,7 +9,7 @@ export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,6 +18,12 @@ export const Content = styled.div`
     flex-direction: column;
     img {
       display: none;
+    }
+  }
+
+  div {
+    img {
+      margin-bottom: 2.5rem;
     }
   }
 `;
@@ -29,8 +35,7 @@ export const ContainerText = styled.div`
   background-repeat: no-repeat;
   background-position: 20% 0%;
   margin-top: 1.25rem;
-  
-  
+
   h1 {
     color: var(--text-body);
     font-size: 1rem;
@@ -51,6 +56,6 @@ export const ContainerText = styled.div`
     color: var(--text-paragraph);
     font-size: 1rem;
     font-weight: 500;
-    margin-top: .3125rem;
+    margin-top: 0.3125rem;
   }
 `;
