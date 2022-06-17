@@ -7,7 +7,6 @@ import { api } from "../../services/api";
 import ctaImg from "../../assets/cta-2.png";
 import { ProductImageDetails } from "../../components/ProductImageDetails";
 import {
-  Button,
   Content,
   Line,
   PriceContainer,
@@ -17,6 +16,7 @@ import {
 import { SelectQuantity } from "../../components/SelectQuantity";
 import { useToast } from "../../hooks/useToast";
 import { Accordion } from "../../components/Accordion";
+import { Button } from "../../components/Button";
 
 interface ProductProps {
   _id: string;
@@ -104,7 +104,9 @@ export function Product() {
             </ProductDetails>
           </ProductContainer>
 
-          <Accordion title="Detalhes" content={product.description} />
+          <Accordion title="Detalhes">
+            <p>{product.description}</p>
+          </Accordion>
         </Content>
       )}
     </>
