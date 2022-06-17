@@ -9,8 +9,8 @@ export const Container = styled.nav`
 export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1rem;
-  
+  padding: 0 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +27,8 @@ export const Content = styled.div`
       padding: 0.5rem 1rem;
       font-size: 1rem;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         color: var(--pink);
         background: var(--background);
         border-radius: 2.5rem;
