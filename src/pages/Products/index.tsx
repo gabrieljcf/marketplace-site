@@ -37,8 +37,8 @@ export function Products() {
     "6255e1d8aedfe58bbf1b8c31"
   );
   const [searchProduct, setSearchProduct] = useState("");
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState<PaginationProps>(
     {} as PaginationProps
   );
@@ -60,6 +60,10 @@ export function Products() {
   function handleSearch() {
     setLoading(true);
     api.get(`products?name=${searchProduct}&limit=12`).then((response) => {
+      setPagination({
+        totalPages: response.data.totalPages,
+        currentPage: response.data.currentPage,
+      });
       setProducts(response.data.products);
       setLoading(false);
     });
