@@ -18,6 +18,7 @@ export function Home() {
         reverse={false}
         image={ctaImg}
         link="products"
+        buttonText="/Compre Agora"
       />
       <OurProducts />
       <Cta
@@ -26,6 +27,8 @@ export function Home() {
         paragraph="A arte festas tem se dedicado a trazer qualidade e melhores preços ao mercado de festas e intretenimento, o nosso compromisso é com o melhor para os nossos clientes"
         reverse={true}
         image={creamImg}
+        link="/about"
+        buttonText="Saiba Mais"
       />
       <ProductsHighlight />
 
