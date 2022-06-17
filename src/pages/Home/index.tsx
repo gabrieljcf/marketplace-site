@@ -17,8 +17,8 @@ export function Home() {
         Aqui você encontra o que há de mais novo no mercdo, para vocẽ poder inovar"
         reverse={false}
         image={ctaImg}
-        link="products"
-        buttonText="/Compre Agora"
+        link="/products"
+        buttonText="Compre Agora"
       />
       <OurProducts />
       <Cta
