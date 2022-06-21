@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { Cta } from "../../components/Cta";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { CardList } from "../../components/CardList";
@@ -55,8 +56,21 @@ export function Basket() {
   }
 
   function handleRemove(id: string) {
-    const newCardItems = cardItems.filter((item) => item._id !== id);
-    setCardItems(newCardItems);
+    Swal.fire({
+      title: 'Atenção',
+      text: "Tem certeza que deseja remover o item da sua cesta?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#EF4983CC',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newCardItems = cardItems.filter((item) => item._id !== id);
+        setCardItems(newCardItems);
+      }
+    })
   }
 
   return (

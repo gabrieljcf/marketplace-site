@@ -14,7 +14,7 @@ interface AccordionProps {
   children: React.ReactNode;
 }
 export function Accordion({ title, children }: AccordionProps) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   return (
     <AccordionContainer>
       <AccordionHeader onClick={() => setExpanded(!expanded)}>
