@@ -15,6 +15,7 @@ import {
   TotalContainer,
 } from "./styles";
 import { Button } from "../../components/Button";
+import { useBasketBadge } from "../../hooks/useBasketBadge";
 
 interface CardItem {
   _id: string;
@@ -28,6 +29,7 @@ interface CardItem {
 export function Basket() {
   const [cardItems, setCardItems] = useState<CardItem[]>([]);
   const [total, setTotal] = useState(0);
+  const { createBasketBadge } = useBasketBadge();
 
   useEffect(() => {
     const items = localStorage.getItem("arte-festas-card");
@@ -53,24 +55,28 @@ export function Basket() {
       return item;
     });
     setCardItems(newCardItems);
+    localStorage.setItem("arte-festas-card", JSON.stringify(newCardItems));
   }
 
   function handleRemove(id: string) {
     Swal.fire({
-      title: 'Atenção',
+      title: "Atenção",
       text: "Tem certeza que deseja remover o item da sua cesta?",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#EF4983CC',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Cancelar'
+      confirmButtonColor: "#EF4983CC",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirmar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         const newCardItems = cardItems.filter((item) => item._id !== id);
         setCardItems(newCardItems);
+
+        localStorage.setItem("arte-festas-card", JSON.stringify(newCardItems));
+        createBasketBadge(newCardItems.length);
       }
-    })
+    });
   }
 
   return (

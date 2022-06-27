@@ -17,6 +17,7 @@ import { SelectQuantity } from "../../components/SelectQuantity";
 import { useToast } from "../../hooks/useToast";
 import { Accordion } from "../../components/Accordion";
 import { Button } from "../../components/Button";
+import { useBasketBadge } from "../../hooks/useBasketBadge";
 
 interface ProductProps {
   _id: string;
@@ -31,6 +32,7 @@ export function Product() {
   const [product, setProduct] = useState<ProductProps>();
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const { createBasketBadge } = useBasketBadge();
   const Toast = useToast();
 
   useEffect(() => {
@@ -42,24 +44,11 @@ export function Product() {
   }, [id]);
 
   function handleAddToCart() {
-    const items = localStorage.getItem("arte-festas-card");
-
-    if (items) {
-      const itemsArray = JSON.parse(items);
-      itemsArray.push({
-        ...product,
-        quantity,
-      });
-
-      localStorage.setItem("arte-festas-card", JSON.stringify(itemsArray));
-    }
-
-    if (!items) {
-      localStorage.setItem(
-        "arte-festas-card",
-        JSON.stringify([{ ...product, quantity }])
-      );
-    }
+    const parseProduct = { ...product, quantity };
+    const items = JSON.parse(localStorage.getItem("arte-festas-card") || "[]");
+    const basketItems = [...items, parseProduct];
+    localStorage.setItem("arte-festas-card", JSON.stringify(basketItems));
+    createBasketBadge(basketItems.length);
 
     Toast.fire({
       icon: "success",
@@ -104,9 +93,11 @@ export function Product() {
             </ProductDetails>
           </ProductContainer>
 
-          <Accordion title="Detalhes">
-            <p>{product.description}</p>
-          </Accordion>
+          {product.description && (
+            <Accordion title="Detalhes">
+              <p>{product.description}</p>
+            </Accordion>
+          )}
         </Content>
       )}
     </>
