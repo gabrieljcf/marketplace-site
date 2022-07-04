@@ -16,6 +16,8 @@ import {
 } from "./styles";
 import { Button } from "../../components/Button";
 import { useBasketBadge } from "../../hooks/useBasketBadge";
+import { SendInformationModal } from "../../components/SendInformationsModal";
+import { convertToBRL, convertValue } from "../../utils/mask";
 
 interface CardItem {
   _id: string;
@@ -26,9 +28,18 @@ interface CardItem {
   quantity: number;
 }
 
+interface FormValues {
+  fullName: string;
+  address: string;
+  typeOfPayment: string;
+  paymentValue: string;
+}
+
 export function Basket() {
   const [cardItems, setCardItems] = useState<CardItem[]>([]);
   const [total, setTotal] = useState(0);
+  const [isSendInformationModalOpen, setIsSendInformationModalOpen] =
+    useState(false);
   const { createBasketBadge } = useBasketBadge();
 
   useEffect(() => {
@@ -79,6 +90,46 @@ export function Basket() {
     });
   }
 
+  function handleOpenSendInformationModal() {
+    setIsSendInformationModalOpen(true);
+  }
+
+  function handleCloseSendInformationModal() {
+    setIsSendInformationModalOpen(false);
+  }
+
+  function getMessage(values: FormValues) {
+    const parseTotal = convertValue(total);
+    const parsePayment = convertToBRL(values.paymentValue, 100);
+    const parseItemsMessage = cardItems
+      .map(
+        (item) =>
+          ` ${item.name}, quantidade: ${item.quantity}, valor: ${convertValue(
+            item.price * item.quantity
+          )}`
+      )
+      .join(",");
+
+    const parsePaymentValue =
+      values.paymentValue !== "0" ? `,valor para troco: ${parsePayment}` : "";
+
+    return `Olá meu nome é ${values.fullName} e esse é o meu pedido:
+      ${parseItemsMessage}, total: ${parseTotal}
+      meu endereço: ${values.address},
+      forma de pagamento: ${values.typeOfPayment}
+      ${parsePaymentValue}
+    `;
+  }
+
+  function handleSubmit(value: FormValues) {
+    localStorage.setItem("arte-festas-card", JSON.stringify([]));
+    handleCloseSendInformationModal();
+    setCardItems([]);
+    createBasketBadge(0);
+    const message = getMessage(value);
+    window.open(`https://wa.me/5577777777777?text=${message}`, "_blank");
+  }
+
   return (
     <BasketContainer>
       <Cta
@@ -93,28 +144,37 @@ export function Basket() {
         <h2>Minha Cesta</h2>
         <Line />
         {cardItems.length > 0 ? (
-          <BasketDetails>
-            <CardListContainer>
-              {cardItems.map((item) => (
-                <CardList
-                  key={item._id}
-                  product={item}
-                  onChangeQuantity={handleChangeQuantity}
-                  onRemove={handleRemove}
-                />
-              ))}
-            </CardListContainer>
-            <TotalContainer>
-              <h3>Total</h3>
-              <p>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(total)}
-              </p>
-              <Button>Finalizar compra</Button>
-            </TotalContainer>
-          </BasketDetails>
+          <>
+            <BasketDetails>
+              <CardListContainer>
+                {cardItems.map((item) => (
+                  <CardList
+                    key={item._id}
+                    product={item}
+                    onChangeQuantity={handleChangeQuantity}
+                    onRemove={handleRemove}
+                  />
+                ))}
+              </CardListContainer>
+              <TotalContainer>
+                <h3>Total</h3>
+                <p>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(total)}
+                </p>
+                <Button onClick={handleOpenSendInformationModal}>
+                  Finalizar compra
+                </Button>
+              </TotalContainer>
+            </BasketDetails>
+            <SendInformationModal
+              isOpen={isSendInformationModalOpen}
+              onRequestClose={handleCloseSendInformationModal}
+              onSubmit={handleSubmit}
+            />
+          </>
         ) : (
           <ErrorMessage message="Sua cesta está vazia" />
         )}
