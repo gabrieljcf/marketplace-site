@@ -57,3 +57,25 @@ export const TotalContainer = styled.div`
     color: var(--text-body);
   }
 `;
+
+export const SendInformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+    color: var(--text-body);
+
+    span {
+      color: var(--pink-dark);
+    }
+  }
+`;

@@ -5,6 +5,7 @@ import { ErrorMessage } from "../../components/ErrorMessage";
 import { CardList } from "../../components/CardList";
 
 import ctaImg from "../../assets/cta.png";
+import sendImg from "../../assets/send.png";
 
 import {
   BasketContainer,
@@ -12,6 +13,7 @@ import {
   BasketDetails,
   CardListContainer,
   Line,
+  SendInformationContainer,
   TotalContainer,
 } from "./styles";
 import { Button } from "../../components/Button";
@@ -40,6 +42,7 @@ export function Basket() {
   const [total, setTotal] = useState(0);
   const [isSendInformationModalOpen, setIsSendInformationModalOpen] =
     useState(false);
+  const [isSendInformation, setIsSendInformation] = useState(false);
   const { createBasketBadge } = useBasketBadge();
 
   useEffect(() => {
@@ -128,6 +131,7 @@ export function Basket() {
     createBasketBadge(0);
     const message = getMessage(value);
     window.open(`https://wa.me/5577777777777?text=${message}`, "_blank");
+    setIsSendInformation(true);
   }
 
   return (
@@ -141,9 +145,16 @@ export function Basket() {
       />
 
       <BasketContent>
-        <h2>Minha Cesta</h2>
-        <Line />
-        {cardItems.length > 0 ? (
+        {!isSendInformation && (
+          <>
+            <h2>Minha Cesta</h2>
+            <Line />
+          </>
+        )}
+        {!cardItems.length && !isSendInformation && (
+          <ErrorMessage message="Sua cesta está vazia" />
+        )}
+        {cardItems.length > 0 && (
           <>
             <BasketDetails>
               <CardListContainer>
@@ -175,8 +186,14 @@ export function Basket() {
               onSubmit={handleSubmit}
             />
           </>
-        ) : (
-          <ErrorMessage message="Sua cesta está vazia" />
+        )}
+        {isSendInformation && (
+          <SendInformationContainer>
+            <h2>
+              Seu pedido foi enviado com <span>Sucesso!</span>
+            </h2>
+            <img src={sendImg} alt="Pedido enviado" />
+          </SendInformationContainer>
         )}
       </BasketContent>
     </BasketContainer>
