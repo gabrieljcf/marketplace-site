@@ -5,6 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 export function Button({
@@ -12,12 +13,14 @@ export function Button({
   children,
   className,
   fullWidth,
+  disabled
 }: ButtonProps) {
   return (
     <ButtonContainer
       className={className || ""}
       onClick={onClick}
       fullWidth={fullWidth || false}
+      disabled={disabled || false}
     >
       {children}
     </ButtonContainer>
