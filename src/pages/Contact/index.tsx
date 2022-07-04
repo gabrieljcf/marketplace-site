@@ -50,7 +50,11 @@ export function Contact() {
               href="https://www.google.com/maps/place/Arte+Festas/@-12.1386252,-38.4252464,17z/data=!3m1!4b1!4m5!3m4!1s0x716bd268fd2de65:0x9308ec7757a9fb61!8m2!3d-12.1386252!4d-38.4230577"
               rel="noreferrer"
             >
-              <img src={localizationImg} alt="localização da loja" />
+              <img
+                src={localizationImg}
+                alt="Localização da loja"
+                title="Localização da loja"
+              />
             </a>
           </div>
 
@@ -68,7 +72,11 @@ export function Contact() {
               href="https://www.google.com/maps/place/Arte+Festas+(Catu-BA)/@-12.3525733,-38.3784202,17z/data=!3m1!4b1!4m5!3m4!1s0x7168d7a1a761ce1:0x355b01d60d891dac!8m2!3d-12.3525797!4d-38.3762492"
               rel="noreferrer"
             >
-              <img src={localizationImg} alt="localização da loja" />
+              <img
+                src={localizationImg}
+                alt="Localização da loja"
+                title="Localização da loja"
+              />
             </a>
           </div>
         </ContactContent>
