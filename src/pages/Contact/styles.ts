@@ -11,7 +11,6 @@ export const ContactContainer = styled.div`
   }
 
   h2 {
-    margin-top: 2.5rem;
     max-width: 470px;
     color: var(--text-body);
     font-size: 2rem;
@@ -26,5 +25,18 @@ export const ContactContainer = styled.div`
     font-size: 1rem;
     font-weight: 500;
     margin-top: 0.3125rem;
+  }
+`;
+
+export const ContactContent = styled.div`
+  .informationsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.25rem 0;
+
+    img {
+      width: 350px;
+    }
   }
 `;
