@@ -25,10 +25,11 @@ export const Content = styled.div`
       color: var(--text-light);
       font-weight: 600;
       padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
       font-size: 1rem;
 
       &:hover,
-      &:active {
+      &.active {
         color: var(--pink);
         background: var(--background);
         border-radius: 2.5rem;

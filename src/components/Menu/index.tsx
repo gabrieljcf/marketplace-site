@@ -1,5 +1,5 @@
 import { Container, Content } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import logoImg from "../../assets/logo.svg";
 import { BasketButton } from "../BasketButton";
@@ -11,19 +11,38 @@ export function Menu() {
         <Link to="/">
           <img src={logoImg} alt="Arte Festas" />
         </Link>
-
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="products">Produtos</Link>
+            <NavLink
+              to="products"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Produtos
+            </NavLink>
           </li>
           <li>
-            <Link to="about">Sobre</Link>
+            <NavLink
+              to="about"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Sobre
+            </NavLink>
           </li>
           <li>
-            <Link to="contact">Contato</Link>
+            <NavLink
+              to="contact"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Contato
+            </NavLink>
           </li>
         </ul>
 
