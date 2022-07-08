@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --text-paragraph: #63393980;
     --text-description: #633939B2;
     --text-light: #FFFFFF;
+    --text-dark: #000000;
     
     --line: #C4C4C466;
 
