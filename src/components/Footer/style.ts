@@ -5,7 +5,7 @@ export const Container = styled.footer`
   width: 100%;
 `;
 
-export const Content = styled.div`
+export const ContentDesktop = styled.div`
   max-width: 1120px;
   margin: 0 auto;
   padding: 2rem 1rem;
@@ -48,3 +48,42 @@ export const Content = styled.div`
     }
   }
 `;
+
+export const ContentMobile = styled.div`
+  position: relative;
+  ul {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    width: 100%;
+    background-color: var(--background);
+    z-index: 1;
+    box-shadow: 0 -10px 20px -5px rgb(115 115 115 / 75%);
+    li {
+      transition: 200ms ease-out;
+      img {
+        width: 25px;
+      }
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-dark);
+        font-size: 12px;
+      }
+    }
+    .active {
+      transition: 200ms ease-out;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: var(--pink);
+        border-radius: 8px;
+      }
+    }
+  }
+`

@@ -23,4 +23,13 @@ export const Listcontainer = styled.ul`
     margin: 0 auto;
     border-radius: 2.5rem;
   }
+
+  // reponsive tablet
+  @media(max-width: 1300px) {
+    overflow-x: scroll;
+    li {
+      white-space: nowrap;
+      margin: 0 10px;
+    }
+  }
 `;
