@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Container, ContentDesktop, ContentMobile } from "./style";
 
 import homeIcon from "../../assets/botao-home.png";
@@ -7,12 +7,6 @@ import aboutIcon from "../../assets/sobre.png";
 import contactIcon from "../../assets/cliente.png";
 
 export function Footer() {
-  const location = useLocation();
-
-  function onActiveClass(path: String) {
-    return location.pathname === path ? 'active' : ''
-  }
-
   function getWidthSize() {
     return document.documentElement.clientWidth;
   }
@@ -66,37 +60,49 @@ export function Footer() {
       ) : (
         <ContentMobile>
           <ul>
-            <li className={onActiveClass('/')}>
-              <Link to="/">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <img
                   src={homeIcon}
                 />
                   Home
-              </Link>
+              </NavLink>
             </li>
-            <li className={onActiveClass('/products')}>
-              <Link to="products">
+            <li>
+              <NavLink
+                to="products"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <img
                   src={productIcon}
                 />
                 Produtos
-              </Link>
+              </NavLink>
             </li>
-            <li className={onActiveClass('/about')}>
-              <Link to="/about">
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <img
                   src={aboutIcon}
                 />
                 Sobre
-              </Link>
+              </NavLink>
             </li>
-            <li className={onActiveClass('/contact')}>
-              <Link to="/contact">
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <img
                   src={contactIcon}
                 />
                 Contato
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </ContentMobile>

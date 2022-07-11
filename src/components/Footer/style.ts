@@ -76,8 +76,14 @@ export const ContentMobile = styled.div`
       }
     }
     .active {
-      transform: scale(1.2);
       transition: 200ms ease-out;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: var(--pink);
+        border-radius: 8px;
+      }
     }
   }
 `
