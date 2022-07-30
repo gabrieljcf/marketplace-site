@@ -19,6 +19,7 @@ import { Loading } from "../../components/Loading";
 
 import ctaImg from "../../assets/cta-2.png";
 import { ErrorContainer } from "../../components/ProductsCaroulsel/styles";
+import { useWindowDimensions } from "hooks/useWindowDimensions";
 interface ProductsProps {
   _id: string;
   price: number;
@@ -42,11 +43,13 @@ export function Products() {
   const [pagination, setPagination] = useState<PaginationProps>(
     {} as PaginationProps
   );
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
+    const limit = width >= 768 ? 12 : 10;
     setLoading(true);
     api
-      .get(`products?category=${activeCategory}&limit=12&page=${page}`)
+      .get(`products?category=${activeCategory}&limit=${limit}&page=${page}`)
       .then((response) => {
         setPagination({
           totalPages: response.data.totalPages,
@@ -55,7 +58,7 @@ export function Products() {
         setProducts(response.data.products);
         setLoading(false);
       });
-  }, [activeCategory, page]);
+  }, [activeCategory, page, width]);
 
   function handleSearch() {
     setLoading(true);
@@ -69,11 +72,16 @@ export function Products() {
     });
   }
 
+  function handleSelectCategory(categoryId: string) {
+    setActiveCategory(categoryId);
+    setSearchProduct("")
+  }
+
   return (
     <main>
       <Cta
-        title="Os melhores produtos para você"
-        subtitle="Solte sua imaginação ao criar novos produtos"
+        title="Os melhores <span>produtos</span> para você"
+        subtitle="Solte sua imaginação ao criar novos <span>produtos</span>"
         paragraph="Que tal trabalhar com algo novo ?
       Aqui você encontra o que há de mais novo no mercdo, para vocẽ poder inovar"
         reverse={false}
@@ -97,7 +105,7 @@ export function Products() {
           </button>
         </SearchContainer>
 
-        <Categories setActiveCategory={setActiveCategory} />
+        <Categories setActiveCategory={handleSelectCategory} />
 
         {loading && <Loading />}
 
