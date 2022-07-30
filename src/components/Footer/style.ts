@@ -50,6 +50,7 @@ export const ContentDesktop = styled.div`
 `;
 
 export const ContentMobile = styled.div`
+  margin-top: 8rem;
   position: relative;
   ul {
     position: fixed;

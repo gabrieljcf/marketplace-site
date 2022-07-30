@@ -1,19 +1,19 @@
 import { NavLink, Link } from "react-router-dom";
 import { Container, ContentDesktop, ContentMobile } from "./style";
+import { useWindowDimensions } from "hooks/useWindowDimensions";
 
 import homeIcon from "../../assets/botao-home.png";
 import productIcon from "../../assets/carrinho.png";
 import aboutIcon from "../../assets/sobre.png";
 import contactIcon from "../../assets/cliente.png";
+import { BasketButton } from "components/BasketButton";
 
 export function Footer() {
-  function getWidthSize() {
-    return document.documentElement.clientWidth;
-  }
+  const { width } = useWindowDimensions();
 
   return (
     <Container>
-      {getWidthSize() >= 768 ? (
+      {width >= 768 ? (
         <ContentDesktop>
           <div>
             <span>redes sociais</span>
@@ -65,10 +65,8 @@ export function Footer() {
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <img
-                  src={homeIcon}
-                />
-                  Home
+                <img src={homeIcon} alt="Página inicial" />
+                Home
               </NavLink>
             </li>
             <li>
@@ -76,9 +74,7 @@ export function Footer() {
                 to="products"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <img
-                  src={productIcon}
-                />
+                <img src={productIcon} alt="Produtos" />
                 Produtos
               </NavLink>
             </li>
@@ -87,9 +83,7 @@ export function Footer() {
                 to="/about"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <img
-                  src={aboutIcon}
-                />
+                <img src={aboutIcon} alt="Sobre a loja" />
                 Sobre
               </NavLink>
             </li>
@@ -98,10 +92,17 @@ export function Footer() {
                 to="/contact"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <img
-                  src={contactIcon}
-                />
+                <img src={contactIcon} alt="Entre em contato" />
                 Contato
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/basket"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <BasketButton />
+                Cesta
               </NavLink>
             </li>
           </ul>
