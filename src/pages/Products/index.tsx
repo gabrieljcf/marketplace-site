@@ -44,12 +44,12 @@ export function Products() {
     {} as PaginationProps
   );
   const { width } = useWindowDimensions();
+  const LIMIT = width >= 768 ? 12 : 10
 
   useEffect(() => {
-    const limit = width >= 768 ? 12 : 10;
     setLoading(true);
     api
-      .get(`products?category=${activeCategory}&limit=${limit}&page=${page}`)
+      .get(`products?category=${activeCategory}&limit=${LIMIT}&page=${page}`)
       .then((response) => {
         setPagination({
           totalPages: response.data.totalPages,
@@ -58,23 +58,25 @@ export function Products() {
         setProducts(response.data.products);
         setLoading(false);
       });
-  }, [activeCategory, page, width]);
+  }, [LIMIT, activeCategory, page, width]);
 
   function handleSearch() {
     setLoading(true);
-    api.get(`products?name=${searchProduct}&limit=12`).then((response) => {
-      setPagination({
-        totalPages: response.data.totalPages,
-        currentPage: response.data.currentPage,
+    api
+      .get(`products?name=${searchProduct}&limit=${LIMIT}`)
+      .then((response) => {
+        setPagination({
+          totalPages: response.data.totalPages,
+          currentPage: response.data.currentPage,
+        });
+        setProducts(response.data.products);
+        setLoading(false);
       });
-      setProducts(response.data.products);
-      setLoading(false);
-    });
   }
 
   function handleSelectCategory(categoryId: string) {
     setActiveCategory(categoryId);
-    setSearchProduct("")
+    setSearchProduct("");
   }
 
   return (

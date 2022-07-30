@@ -142,7 +142,7 @@ export function Product() {
                   }).format(product.price * quantity)}
                 </p>
               </PriceContainer>
-              <Button onClick={handleAddToCart}>Adicionar a cesta</Button>
+              <Button onClick={handleAddToCart} fullWidth>Comprar</Button>
             </ProductDetails>
           </ProductContainer>
           {product.description && (
