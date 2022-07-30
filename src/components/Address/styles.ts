@@ -14,16 +14,22 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    img {
-      display: none;
-    }
-  }
-
   div {
     img {
       margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 1rem;
+    img {
+      display: none;
+    }
+
+    button {
+      margin: 2.5rem 0;
+      align-self: flex-start;
     }
   }
 `;
@@ -57,5 +63,11 @@ export const ContainerText = styled.div`
     font-size: 1rem;
     font-weight: 500;
     margin-top: 0.3125rem;
+  }
+
+  @media (max-width: 768px) {
+    background-position: 0% 0%;
+    width: 100%;
+    padding: 1rem 0;
   }
 `;

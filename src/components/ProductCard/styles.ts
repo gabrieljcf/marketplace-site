@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-
   padding: 2rem;
-  
+
   max-width: 220px;
   max-height: 270px;
-  
+
+  @media screen and (max-width: 768px) {
+    width: 178px;
+  }
+
   border-radius: 2rem;
   box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
-  
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -27,11 +30,15 @@ export const Card = styled.div`
     color: var(--text-body);
 
     margin: 1.25rem 0;
-   
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 200px;
+
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
   }
 `;
 
@@ -39,7 +46,7 @@ export const PriceContainer = styled.div`
   position: absolute;
   left: 0;
   top: 5rem;
-  
+
   padding: 0.625rem;
 
   background: var(--background);
@@ -48,7 +55,7 @@ export const PriceContainer = styled.div`
 
   small {
     color: var(--text-body);
-    font-size: .875rem;
+    font-size: 0.875rem;
     font-weight: 500;
   }
 `;

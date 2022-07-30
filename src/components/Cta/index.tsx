@@ -25,16 +25,14 @@ export function Cta({
     <Container>
       <Content reverse={reverse}>
         <ContainerText>
-          <h1>{title}</h1>
-          <h2>{subtitle}</h2>
+          <h1 dangerouslySetInnerHTML={{ __html: title }} />
+          <h2 dangerouslySetInnerHTML={{ __html: subtitle }} />
           <p>{paragraph}</p>
 
-          {link ? (
+          {link && (
             <Link to={link}>
               <Button>{buttonText}</Button>
             </Link>
-          ) : (
-            ""
           )}
         </ContainerText>
 

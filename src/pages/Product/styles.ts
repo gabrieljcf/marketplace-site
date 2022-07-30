@@ -9,6 +9,11 @@ export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2.5rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+    flex-direction: column;
+  } 
 `;
 
 export const Line = styled.div`
@@ -16,6 +21,12 @@ export const Line = styled.div`
   height: 450px;
   width: 1px;
   background-color: var(--line);
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    height: 1px;
+    width: 100%;
+  } 
 `;
 
 export const ProductDetails = styled.div`
@@ -32,10 +43,18 @@ export const ProductDetails = styled.div`
     -webkit-line-clamp: 3;
     display: -webkit-box;
     overflow: hidden;
-    width: 500px;
     color: var(--text-description);
     font-size: 0.875rem;
   }
+  
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    h2 {
+      margin: 1.25rem 0;
+    }
+  } 
+  
 `;
 
 export const PriceContainer = styled.div`

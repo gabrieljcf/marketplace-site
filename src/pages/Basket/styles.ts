@@ -10,6 +10,10 @@ export const BasketContent = styled.div`
     font-weight: 500;
     color: var(--text-body);
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Line = styled.div`
@@ -23,7 +27,12 @@ export const BasketDetails = styled.div`
   display: grid;
   grid-template-columns: 1fr 250px;
   grid-template-rows: auto;
-  grid-gap: 60px;
+  grid-gap: 3.75rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1.25rem;
+  }
 `;
 
 export const CardListContainer = styled.div`
@@ -31,6 +40,10 @@ export const CardListContainer = styled.div`
   box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1.25rem;
   border-radius: 2.5rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
 `;
 
 export const TotalContainer = styled.div`
@@ -51,10 +64,15 @@ export const TotalContainer = styled.div`
 
   p {
     margin: 1.25rem 0;
+    text-align: center;
 
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--text-body);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
   }
 `;
 
@@ -76,6 +94,11 @@ export const SendInformationContainer = styled.div`
 
     span {
       color: var(--pink-dark);
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.25rem;
+
     }
   }
 `;

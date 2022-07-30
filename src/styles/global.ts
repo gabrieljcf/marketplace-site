@@ -96,6 +96,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 3rem;
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+    }
   }
   .react-modal-close {
     position: absolute;

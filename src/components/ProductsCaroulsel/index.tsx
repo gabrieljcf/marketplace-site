@@ -5,6 +5,7 @@ import { ProductCard } from "../ProductCard";
 import { Container, ErrorContainer } from "./styles";
 
 import "swiper/css";
+import { useWindowDimensions } from "hooks/useWindowDimensions";
 interface Products {
   _id: string;
   price: number;
@@ -21,13 +22,15 @@ export function ProductsCarousel({
   products,
   notFoundMessage,
 }: HighLigthProducsProps) {
+  const { width } = useWindowDimensions();
+
   return (
     <Container>
       {products.length ? (
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={0}
-          slidesPerView={4}
+          spaceBetween={width >= 768 ? 0 : 20}
+          slidesPerView={width >= 768 ? 4 : 2}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,

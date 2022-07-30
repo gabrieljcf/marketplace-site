@@ -10,6 +10,18 @@ export const Content = styled.div`
     "line line"
     "title input"
     "category products";
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+    margin: 0 auto 5rem auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "line"
+      "title"
+      "category"
+      "input"
+      "products";
+  }
 `;
 
 export const Line = styled.div`
@@ -53,6 +65,11 @@ export const SearchInput = styled.input`
     font-weight: 500;
     font-size: 1rem;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -73,6 +90,10 @@ export const ListContainer = styled.div`
 
   margin-top: 3.375rem;
   margin-left: 3.75rem;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 export const ListProductsContent = styled.div`
@@ -80,4 +101,9 @@ export const ListProductsContent = styled.div`
   grid-gap: 2.5rem;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
+
+  @media screen and (max-width: 768px) {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const AccordionContainer = styled.div`
   width: 100%;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const AccordionHeader = styled.div`

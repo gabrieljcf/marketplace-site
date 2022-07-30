@@ -10,7 +10,15 @@ export const Container = styled.section`
     color: var(--text-body);
 
     span {
-      color: var(--pink-dark)
+      color: var(--pink-dark);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 95%;
+
+    h2 {
+      font-size: 1.5rem;
     }
   }
 `;
