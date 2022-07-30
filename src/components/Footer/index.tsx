@@ -2,10 +2,10 @@ import { NavLink, Link } from "react-router-dom";
 import { Container, ContentDesktop, ContentMobile } from "./style";
 import { useWindowDimensions } from "hooks/useWindowDimensions";
 
-import homeIcon from "../../assets/botao-home.png";
-import productIcon from "../../assets/carrinho.png";
-import aboutIcon from "../../assets/sobre.png";
-import contactIcon from "../../assets/cliente.png";
+import homeIcon from "../../assets/home.svg";
+import productIcon from "../../assets/shopping_cart.svg";
+import aboutIcon from "../../assets/information.svg";
+import contactIcon from "../../assets/contact.svg";
 import { BasketButton } from "components/BasketButton";
 
 export function Footer() {

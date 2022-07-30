@@ -72,7 +72,7 @@ export const ContentMobile = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: var(--text-dark);
+        color: var(--text-menu);
         font-size: 12px;
       }
     }
