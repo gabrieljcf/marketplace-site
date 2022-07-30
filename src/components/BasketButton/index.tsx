@@ -1,7 +1,7 @@
 import { useWindowDimensions } from "hooks/useWindowDimensions";
 import { useBasketBadge } from "../../hooks/useBasketBadge";
 import basketImg from "../../assets/basket.svg";
-import basketMobileImg from "../../assets/basket.png";
+import basketMobileImg from "../../assets/shopping_basket.svg";
 import { BasketContainer } from "./styles";
 
 export function BasketButton() {

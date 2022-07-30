@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     --line: #C4C4C466;
 
     --background: #FFF;
+    --text-menu: #5F6368
   }
   * {
     margin: 0;

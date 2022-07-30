@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Cta } from "../../components/Cta";
 import { ErrorMessage } from "../../components/ErrorMessage";
-import { CardList } from "../../components/CardList";
+import { Button } from "../../components/Button";
+import { useBasketBadge } from "../../hooks/useBasketBadge";
+import { SendInformationModal } from "../../components/SendInformationsModal";
+import { convertToBRL, convertValue } from "../../utils/mask";
+import { CartList } from "components/CartList";
 
 import ctaImg from "../../assets/cta.png";
 import sendImg from "../../assets/send.png";
@@ -16,10 +20,7 @@ import {
   SendInformationContainer,
   TotalContainer,
 } from "./styles";
-import { Button } from "../../components/Button";
-import { useBasketBadge } from "../../hooks/useBasketBadge";
-import { SendInformationModal } from "../../components/SendInformationsModal";
-import { convertToBRL, convertValue } from "../../utils/mask";
+
 
 interface CardItem {
   _id: string;
@@ -162,7 +163,7 @@ export function Basket() {
             <BasketDetails>
               <CardListContainer>
                 {cardItems.map((item) => (
-                  <CardList
+                  <CartList
                     key={item._id}
                     product={item}
                     onChangeQuantity={handleChangeQuantity}
