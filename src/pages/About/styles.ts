@@ -36,4 +36,8 @@ export const AboutContent = styled.div`
     font-weight: 500;
     margin-top: 1.5rem;
   }
+
+  @media screen and (max-width: 768px){
+    padding: 0 1rem;
+  }
 `;

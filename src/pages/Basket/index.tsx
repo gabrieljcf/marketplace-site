@@ -137,11 +137,14 @@ export function Basket() {
   return (
     <BasketContainer>
       <Cta
-        title="Conheça a Nossa História"
-        subtitle="Com mais de 10 anos de mercado"
-        paragraph="A arte festas tem se dedicado a trazer qualidade e melhores preços ao mercado de festas e intretenimento, o nosso compromisso é com o melhor para os nossos clientes"
+        title="Os melhores <span>produtos</span> para você"
+        subtitle="Solte sua imaginação ao criar novos <span>produtos</span>"
+        paragraph="Que tal trabalhar com algo novo ?
+        Aqui você encontra o que há de mais novo no mercdo, para vocẽ poder inovar"
         reverse={true}
         image={ctaImg}
+        link="/products"
+        buttonText="Compre Agora"
       />
 
       <BasketContent>

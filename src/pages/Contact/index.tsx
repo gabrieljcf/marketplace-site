@@ -19,8 +19,8 @@ export function Contact() {
   return (
     <main>
       <Cta
-        title="Os melhores produtos para você"
-        subtitle="Solte sua imaginação ao criar novos produtos"
+        title="Os melhores <span>produtos</span> para você"
+        subtitle="Solte sua imaginação ao criar novos <span>produtos</span>"
         paragraph="Que tal trabalhar com algo novo ?
         Aqui você encontra o que há de mais novo no mercdo, para vocẽ poder inovar"
         reverse={false}
