@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const ErrorContainer = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0;
   text-align: center;
 
   span {
@@ -15,7 +15,8 @@ export const ErrorContainer = styled.div`
     font-size: 1.2rem;
 
     @media screen and (max-width: 768px) {
-      font-size: 1rem;
+      padding: 0 1rem;
+      font-size: 1.1rem;
     }
   }
 `;

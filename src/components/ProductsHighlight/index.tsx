@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ProductsCarousel } from "../ProductsCaroulsel";
 import { api } from "../../services/api";
+import { ProductsCarousel } from "../ProductsCaroulsel";
 import { Container } from "./style";
 
 interface Products {
@@ -12,10 +12,14 @@ interface Products {
 
 export function ProductsHighlight() {
   const [products, setProducts] = useState<Products[]>([]);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     api.get(`products`)
-      .then(response => setProducts(response.data.products));
+      .then(response => setProducts(response.data.products))
+      .catch(() => {
+        setHasError(true)
+      });
   }, []);
 
   return (
@@ -24,7 +28,11 @@ export function ProductsHighlight() {
 
       <ProductsCarousel 
         products={products}
-        notFoundMessage="No momento não existe produtos em destaque"
+        notFoundMessage={
+          hasError 
+          ? "Sentimos muito! parece que aconteceu um erro interno. Por favor tente mais tarde 😢" 
+          : "No momento não existe produtos em destaque"
+        }
       />
 
     </Container>

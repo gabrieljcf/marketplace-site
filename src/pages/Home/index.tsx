@@ -1,11 +1,10 @@
+import { Address } from "components/Address";
+import { ProductsHighlight } from "components/ProductsHighlight";
+import creamImg from "../../assets/cta-2.png";
+import ctaImg from "../../assets/cta.png";
 import { Cta } from "../../components/Cta";
 import { OurProducts } from "../../components/OurProducts";
-
-import ctaImg from "../../assets/cta.png";
-import creamImg from "../../assets/cta-2.png";
-import { ProductsHighlight } from "../../components/ProductsHighlight";
 import { HomeContainer } from "./styles";
-import { Address } from "components/Address";
 
 export function Home() {
   return (
