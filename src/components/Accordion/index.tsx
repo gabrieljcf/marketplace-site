@@ -20,8 +20,8 @@ export function Accordion({ title, children }: AccordionProps) {
       <AccordionHeader onClick={() => setExpanded(!expanded)}>
         <h3>{title}</h3>
         <img
-          src={!expanded ? arrowDownImg : arrowUpImg}
-          alt="exibir descrição"
+          src={!expanded ? arrowUpImg : arrowDownImg}
+          alt={!expanded ? "Exibir descrição" : "Ocultar descrição"}
         />
       </AccordionHeader>
 
