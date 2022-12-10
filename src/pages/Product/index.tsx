@@ -38,10 +38,12 @@ export function Product() {
 
   useEffect(() => {
     setLoading(true);
-    api.get(`products/${id}`).then((response) => {
-      setProduct(response.data);
-      setLoading(false);
-    });
+    if (id) {
+      api.get<ProductProps>(`products/${id}`).then(({ data }) => {
+        setProduct(data);
+        setLoading(false);
+      });
+    }
   }, [id]);
 
   function getBasketProducts() {
@@ -142,7 +144,9 @@ export function Product() {
                   }).format(product.price * quantity)}
                 </p>
               </PriceContainer>
-              <Button onClick={handleAddToCart} fullWidth>Comprar</Button>
+              <Button onClick={handleAddToCart} fullWidth>
+                Comprar
+              </Button>
             </ProductDetails>
           </ProductContainer>
           {product.description && (

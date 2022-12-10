@@ -70,12 +70,12 @@ export function Products() {
     setLoading(true);
     api
       .get(`products?name=${searchProduct}&limit=${LIMIT}`)
-      .then((response) => {
+      .then(({ data }) => {
         setPagination({
-          totalPages: response.data.totalPages,
-          currentPage: response.data.currentPage,
+          totalPages: data.totalPages,
+          currentPage: data.currentPage,
         });
-        setProducts(response.data.products);
+        setProducts(data.products);
         setLoading(false);
       })
       .catch(() => {
