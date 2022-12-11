@@ -21,7 +21,6 @@ import {
   TotalContainer,
 } from "./styles";
 
-
 interface CardItem {
   _id: string;
   name: string;
@@ -173,12 +172,7 @@ export function Basket() {
               </CardListContainer>
               <TotalContainer>
                 <h3>Total</h3>
-                <p>
-                  {new Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(total)}
-                </p>
+                <p>{convertValue(total)}</p>
                 <Button onClick={handleOpenSendInformationModal}>
                   Finalizar compra
                 </Button>

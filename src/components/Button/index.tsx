@@ -13,10 +13,11 @@ export function Button({
   children,
   className,
   fullWidth,
-  disabled
+  disabled,
 }: ButtonProps) {
   return (
     <ButtonContainer
+      data-testid="button"
       className={className || ""}
       onClick={onClick}
       fullWidth={fullWidth || false}

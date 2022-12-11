@@ -5,6 +5,7 @@ import trashImg from "../../assets/trash-o.svg";
 
 import { CartListContainer } from "./styles";
 import { Link } from "react-router-dom";
+import { convertValue } from "utils/mask";
 
 interface Product {
   _id: string;
@@ -40,12 +41,7 @@ export function CartList({
           />
         </Link>
         <p>{product.name}</p>
-        <p>
-          {new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          }).format(product.price)}
-        </p>
+        <p>{convertValue(product.price)}</p>
       </div>
 
       <div>
@@ -54,14 +50,9 @@ export function CartList({
           setQuantity={handleQuantityChange}
         />
 
-        <p>
-          {new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          }).format(product.price * quantity)}
-        </p>
+        <p>{convertValue(product.price * quantity)}</p>
 
-        <button onClick={() => onRemove(product._id)}>
+        <button onClick={() => onRemove(product._id)} data-testid="remove-product-button">
           <img src={trashImg} alt="Remover" />
         </button>
       </div>

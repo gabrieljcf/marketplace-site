@@ -19,6 +19,7 @@ import {
   ProductDetails,
 } from "./styles";
 import Swal from "sweetalert2";
+import { convertValue } from "utils/mask";
 interface ProductProps {
   _id: string;
   name: string;
@@ -137,12 +138,7 @@ export function Product() {
               <p>{product.description}</p>
               <PriceContainer>
                 <SelectQuantity quantity={quantity} setQuantity={setQuantity} />
-                <p>
-                  {new Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(product.price * quantity)}
-                </p>
+                <p>{convertValue(product.price * quantity)}</p>
               </PriceContainer>
               <Button onClick={handleAddToCart} fullWidth>
                 Comprar
