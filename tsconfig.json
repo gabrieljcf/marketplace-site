@@ -26,6 +26,6 @@
   },
   "include": [
     "src"
-  ],
+, "tests/index.test.tsx", "./jest-setup.ts"  ],
   "exclude": ["node_modules"]
 }
