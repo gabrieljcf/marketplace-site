@@ -78,7 +78,7 @@ export function Product() {
   function alertProductExistsInBasket(id = "", quantity: number) {
     Swal.fire({
       title: "Atenção",
-      text: "Esse produto já foi adicionado a sua cesta, deseja adicionar a quantidade atual?",
+      text: `Esse produto já foi adicionado a sua cesta, deseja adicionar mais ${quantity} a quantidade atual?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#EF4983CC",
