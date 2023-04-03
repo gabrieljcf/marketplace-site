@@ -52,7 +52,7 @@ Go to http://localhost:3000/ to see the result.
 
 # :bug: Issues
 
-Create a <a href="https://github.com/gabrieljcf/dtmoney/issues">new issue report</a>, it will be an honor to be able to help you solve and further improve our application.
+Create a <a href="https://github.com/gabrieljcf/marketplace-site/issues" target="_blank">new issue report</a>, it will be an honor to be able to help you solve and further improve our application.
 
 # :sparkles: Contributing
 
