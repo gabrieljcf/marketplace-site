@@ -67,9 +67,12 @@ export function Products() {
   }, [LIMIT, activeCategory, page, width]);
 
   function handleSearch() {
+    const searchCondition = searchProduct
+      ? `?name=${searchProduct}&category=${activeCategory}&limit=${LIMIT}`
+      : `?category=${activeCategory}&limit=${LIMIT}`
     setLoading(true);
     api
-      .get(`products?name=${searchProduct}&limit=${LIMIT}`)
+      .get(`products${searchCondition}`)
       .then(({ data }) => {
         setPagination({
           totalPages: data.totalPages,
@@ -87,6 +90,7 @@ export function Products() {
 
   function handleSelectCategory(categoryId: string) {
     setActiveCategory(categoryId);
+    setPage(1)
     setSearchProduct("");
   }
 
