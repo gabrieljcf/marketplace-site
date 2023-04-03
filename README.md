@@ -62,7 +62,7 @@ Create a <a href="https://github.com/gabrieljcf/dtmoney/issues">new issue report
 - Push to your branch: `git push origin my-feature`.
   
 # :sparkles: Link for site
-  - <a href="https://marketplace-site.onrender.com/">Arte Festas</a>
+  - <a href="https://marketplace-site.onrender.com/" target="_blank">Arte Festas</a>
 
 # :page_facing_up: License
 
