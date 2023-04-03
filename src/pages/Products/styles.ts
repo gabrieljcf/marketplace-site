@@ -5,7 +5,7 @@ export const Content = styled.div`
   margin: 5rem auto;
 
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 260px 1fr;
   grid-template-areas:
     "line line"
     "title input"

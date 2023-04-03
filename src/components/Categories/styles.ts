@@ -7,7 +7,6 @@ export const Aside = styled.aside`
 export const RadioGroup = styled.div`
   border: 2px solid var(--line);
   border-radius: 1.5rem;
-  max-width: 240px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -15,7 +14,16 @@ export const RadioGroup = styled.div`
 
   div {
     padding: 1rem;
-    border-bottom: 1px solid var(--line);
+
+    &:after {
+      content: "";
+      display: block;
+      margin-top: 0.5rem;
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      border-radius: 2.5rem;
+    }
 
     label {
       cursor: pointer;
@@ -29,7 +37,7 @@ export const RadioGroup = styled.div`
           border-radius: 50%;
           width: 1rem;
           height: 1rem;
-          padding: 5px;
+          padding: 0.25rem;
         }
 
         &:checked {
@@ -57,6 +65,11 @@ export const RadioGroup = styled.div`
 
     div {
       padding: 1rem 0;
+
+      &:after {
+        content: "";
+        display: none;
+      }
     }
   }
 `;
