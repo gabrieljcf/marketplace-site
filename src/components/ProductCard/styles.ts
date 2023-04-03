@@ -7,7 +7,7 @@ export const Card = styled.div`
   max-height: 270px;
 
   @media screen and (max-width: 768px) {
-    width: 178px;
+    width: 170px;
   }
 
   border-radius: 2rem;
