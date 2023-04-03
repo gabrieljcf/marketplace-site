@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .swiper {
-    padding: 10px;
+    padding: 10px 5px;
   }
   
   .swiper-pagination-bullet {
